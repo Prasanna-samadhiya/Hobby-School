@@ -1,0 +1,57 @@
+{% load static %}
+<html>
+<head>
+    <link href="{% static 'image/icon1.jpg' %}"
+          rel="icon">
+    <link href="{% static 'css/style1.css' %}"
+          rel="stylesheet">
+</head>
+<body>
+<div id="maindiv">
+<div id="header">
+    <span>Online Hobby School</span>
+ <img src="{% static 'image/logo1.jpg' %}" 
+      id="logo1">
+ 
+ <img src="{% static 'image/logo2.jpg' %}" 
+      id="logo2">
+</div>
+    
+<!-- <div id="menu">
+<a href="">HOME</a>
+<a href="#">COURSES</a>
+<a href="/userlist/">USER LIST</a>
+<a href="/register/">REGISTER</a>
+<a href="#">LOGIN</a>
+</div> -->
+
+{% include 'menu.html' %}
+    
+<div id="content">
+  <table border="1" align="center">
+    <tr>
+      <th>s.no</th>
+      <th>course name</th>
+      <th>duration</th>
+      <th>fees</th>
+      <th>image</th>
+    </tr>
+    {% for x in res %}
+    <tr>
+      <td>{{ x.courseid }}</td>
+      <td>{{ x.rnm }}</td>
+      <td>{{ x.duration }}</td>
+      <td>{{ x.fees }}</td>
+      <td><img src="{{ media_url }}{{ x.courseicon }}" height="50" width="80"></td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+<div id="footer">
+    <div align="center">
+      &copy; HobbySchool-2023  
+    </div>
+    </div>
+</div>
+</body>
+</html>

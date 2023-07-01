@@ -1,0 +1,38 @@
+{% load static %}
+<html>
+<head>
+    <link href="{% static 'image/icon1.jpg' %}"
+          rel="icon">
+    <link href="{% static 'css/style1.css' %}"
+          rel="stylesheet">
+</head>
+<body>
+<div id="maindiv" style="width: 1500px;height:1500px;margin: auto;">
+<div id="header">
+    <span style="font-size: 48;">Online Hobby School</span>
+ <img src="{% static 'image/logo1.jpg' %}" 
+      id="logo1">
+ 
+ <img src="{% static 'image/logo2.jpg' %}" 
+      id="logo2">
+</div>
+    
+<!-- <div id="menu">
+<a href="">HOME</a>
+<a href="#">COURSES</a>
+<a href="/userlist/">USER LIST</a>
+<a href="/register/">REGISTER</a>
+<a href="#">LOGIN</a>
+</div> -->
+
+{% include 'menu.html' %}
+    
+<div id="content"></div>
+<div id="footer">
+    <div align="center">
+      &copy; HobbySchool-2023  
+    </div>
+    </div>
+</div>
+</body>
+</html>

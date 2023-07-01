@@ -1,0 +1,60 @@
+{% load static %}
+<html>
+<head>
+    <link href="{% static 'image/icon1.jpg' %}"
+          rel="icon">
+    <link href="{% static 'css/style1.css' %}"
+          rel="stylesheet">
+</head>
+<body>
+<div id="maindiv">
+<div id="header">
+    <span>Online Hobby School</span>
+ <img src="{% static 'image/logo1.jpg' %}" 
+      id="logo1">
+ 
+ <img src="{% static 'image/logo2.jpg' %}" 
+      id="logo2">
+</div>
+    
+<!-- <div id="menu">
+<a href="">HOME</a>
+<a href="#">COURSES</a>
+<a href="/userlist/">USER LIST</a>
+<a href="/register/">REGISTER</a>
+<a href="#">LOGIN</a>
+</div> -->
+
+{% include 'menu.html' %}
+    
+<div id="content">
+  <table border="1" align="center">
+    <caption>Upcoming batch list</caption>
+    <tr>
+      <th>batch id</th>
+      <th>course name</th>
+      <th>start date</th>
+      <th>batch time</th>
+      <th>faculty name</th>
+      <th>option</th>
+    </tr>
+    {% for x in res %}
+    <tr>
+      <td>{{ x.batchid }}</td>
+      <td>{{ x.rnm }}</td>
+      <td>{{ x.startdate }}</td>
+      <td>{{ x.batchtime }}</td>
+      <td>{{ x.facultyname }}</td>
+      <td><a href="/admission/?batchid={{ x.batchid }}">select batch</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+<div id="footer">
+    <div align="center">
+      &copy; HobbySchool-2023  
+    </div>
+    </div>
+</div>
+</body>
+</html>
